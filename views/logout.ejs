@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>실시간 드라마 채팅 TVTalk!</title>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var socket = io();
+		socket.emit('check', 'tvtalk');
+		socket.on('config', function(msg) {
+		    if(msg !='fail'){
+		        firebase.initializeApp(msg);
+
+		        var db = firebase.database();
+		        var data_length;
+
+		        firebase.auth().onAuthStateChanged(function(user) {
+		          if (user) {
+		          	firebase.auth().signOut().then(function() {
+		          	  console.log("로그아웃 완료!");
+		          	  location.href = "main";
+		          	}, function(error) {
+		          	  console.log("로그아웃 에러!");
+		          	});
+		           }else{
+		           	location.href="main";
+		           }
+		        });
+
+		    }else if(msg =='fail') alert("네트워크 상태가 원활하지 않습니다.");
+		});
+	</script>
+</body>
+
+</html>

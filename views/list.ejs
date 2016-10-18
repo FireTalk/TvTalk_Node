@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>실시간 드라마 채팅 TVTalk!</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/theme_drama_info.css" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+
+</head>
+
+<body>
+    <div class="phone-wrapper">
+        <header>
+            <nav id="nav-bar">
+                <div class="nav-wrapper">
+                    <a href="/main?sc=<%=key%>" class="back"><img src="../images/back.png" alt="back_icon" width="22px" /></a>
+                    <a href="#" class="brand-logo center"></a>
+                    <a href="javascript:changeBookMark(<%=key%>)" class="login" style="height:37px;"><img src='../images/nobookmark.png' id='bookmark' width="16px" style="margin-bottom: 4px;" /></a>
+                </div>
+            </nav>
+        </header>
+
+        <div class="phone-body" id="drama_list">
+
+            <div class="collection">
+
+            </div>
+            <div class="info"><img class="i" src="../images/i.png">   회차별 섬네일 이미지 출처 페이지 링크 - <a href="#!" id="img_source"></a></div>
+        </div>
+
+    </div>
+
+    <input type="hidden" id="key" value="<%=key%>" readonly style="display: none">
+
+
+            <script src="../js/getDramaList.js"></script>
+            <script src="../js/changeLikeImg.js"></script>
+
+</body>
+
+</html>

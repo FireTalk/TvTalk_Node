@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>실시간 드라마 채팅 TVTalk!</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/theme_home.css" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+</head>
+
+<body>
+    <div class="phone-wrapper">
+            <header>
+                <nav id="nav-bar">
+                    <div class="nav-wrapper">
+                        <a class="login"><img class="tooltip1" src="../images/log_on.png" alt="login"/>
+                        </a>
+                        <span class="brand-logo center"><img height=16px width=75px src="../images/tvtalk.png" alt="logo"/></span>
+                        <a href="#!" class="setting tooltipped" data-position="bottom" data-delay="50" data-tooltip="설정"><img src="./images/setting.png" alt="setting" /></a>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="phone-body" id="drama_list">
+                <div class="collection">
+                </div>
+            </div>
+        </div>
+
+
+        <script src="js/getDramaMain.js"></script>
+        <script src="js/changeLikeImg.js"></script>
+
+</body>
+
+</html>

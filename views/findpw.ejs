@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>실시간 드라마 채팅 TVTalk!</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/theme_pwd_change.css" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+
+</head>
+
+<body>
+    <div class="phone-wrapper">
+        <header>
+            <nav id="nav-bar">
+                <div class="nav-wrapper">
+                    <a href="javascript:back()" class="back"><img src="./images/back.png" width="25px" /></a>
+                    <span class="brand-logo center">비밀번호 찾기</span>
+                </div>
+            </nav>
+        </header>
+        <div class="phone-body" id="drama_list">
+            <div class="pwd_change">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s8 offset-s2">
+                                <div class="input_title">아이디</div>
+                                <input id="input_id" type="email" class="validate" placeholder="hottalk@hotmail.com" onkeyup="checkEndInput()">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row" style="margin-bottom: 4px">
+                    <div class="butoon col s8 offset-s2">
+                        <a class="waves-effect waves-light btn-large" id="button_change">비밀번호 변경 메일 보내기</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/pwdFind.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>실시간 드라마 채팅 TVTalk!</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/theme_join.css" />
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+
+</head>
+
+<body>
+    <div class="phone-wrapper">
+        <header>
+            <nav id="nav-bar">
+                <div class="nav-wrapper">
+                    <a href="/login/<%=back%>" class="back"><img src="../images/back.png" width="25px"/></a>
+                    <span class="brand-logo center">이메일 인증</span>
+                </div>
+            </nav>
+        </header>
+        <div class="phone-body" id="drama_list">
+            <div class="join">
+            <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s8 offset-s2">
+                                <div class="input_title">이메일</div>
+                                <input id="input_email" type="email" class="validate" placeholder="hottalk@hotmail.com" onkeyup="checkEndInput()">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s8 offset-s2">
+                                <div class="input_title">닉네임</div>
+                                <input id="input_nick" type="text" class="validate" placeholder="닉네임을 정해주세요." maxlength=12 onkeyup="checkEndInput()">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s8 offset-s2">
+                                <div class="input_title">비밀번호</div>
+                                <input id="input_password" maxlength=12 type="password" class="validate" placeholder="영문, 숫자 혼용 6~12자리" onkeyup="checkEndInput()">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s8 offset-s2">
+                                <div class="input_title">번호확인</div>
+                                <input id="input_pwCheck" maxlength=12 type="password" class="validate" placeholder="다시 한번 입력해주세요." onkeyup="checkEndInput()">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="row" style="margin-bottom: 4px">
+                    <div class="button col s8 offset-s2">
+                        <a class="waves-effect waves-light btn-large" id="button_join">가입하기</a>
+                    </div>
+                </div>
+
+             </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="hidden" value="<%=back%>" readonly>
+
+
+    <script src="../js/emailpwdCheck.js"></script>
+
+</body>
+
+</html>

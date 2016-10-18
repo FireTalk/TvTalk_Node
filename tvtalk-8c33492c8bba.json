@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tvtalk-c4d50",
+  "private_key_id": "8c33492c8bbaad851985543f12032e51a60efdd5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDDxBF0eOzWBayH\ncwo1R5/bUvN8Sk0ofKiLR9jSAyJpZyX6zL9FEY0F4Ll8m0v7Pb5E2vB/UrS3Ie32\nlG2I45G8CYjWtw4bqxJxZPxd3FdUMbCg6wTF2m6svnR7U1Md6CoaSXDxpkWsLjuR\nzWb4bRSdtKBE+efXEApcXmwmK5m8vqA2Q20RiTpOuyHfiFgJ2kw3gTfq/6azRVrL\nvJeD9ndj4GiIiZoZy5HB59KeS9cwPv2PV/xS3aWeAz4zVWN+7RiyQMkJJ/CFWbQu\n/cVv29V4qmJIaVjgv1v7I6IzPimDvbs0BC8zBjzz9fi3kDnyNtbHBCWSjCi3e6Qn\nfLr8TgifAgMBAAECggEBAJLkENDbV6Jz2XQ8/sDhwHIaePae7exeNT1lKKzUi0KZ\nkibw8OgLdkydxbBY+pdHSfhya5it30m2nM6zqsjXMOfuI44xBtX99DW/t5laFvDm\n5AiqsAchkn/t3IsZB7neFZFp3+SCha7fdfU+MXBgsOJwwP1govR9ZbjPZMjzWEUF\nV865sTKyFFfHeaH63zARRz685KLMsPcFHNs4F+mfbqG9EnIezda/ZPKZvc8TWLoD\nFwLyy6yXWxBVwiPkH1c0ce2YVBK743z99foLXVhSZeaRnwM0+JE/lNxiQd1MZV5H\nlLBj9u4QsB5kaIYHFAUP1hIWzyrMODttphTQBt9syJkCgYEA7G1Cu8H8YdCobBsQ\nvGKzydIwXmiztS1MrhSNG9FCYWVZGi26gipSaKUMkXqXBazb+t/3+59GQ0UzxBZn\nYdnOdIZVIiD/lJpisSMR4yZ1cX4vBguzPQ6+Z30dJIvV6xTn43eSBWf2rTFWgzUH\n3JaYe6iTK4gu3syqDlNnUTI6BlUCgYEA0/kORR6o/7w6LH2ja4OqI4tSx3I0GgbW\nd6UZt3aW09OPg8rRV7huHC0UZGpkJMZEk6H13es+Atipu1WViURv15m000AYitmA\ngUjKzbrydubtAdkaECXGuKfn+6ToMjdl4oXb1LU2sClNH3xBpcQXXceONjJZUQUa\nmGco+91PfyMCgYAWzLKSyLI9/JFBW5rRj/Mmk052zEIIRsYOQ40YEaYFHnDpRV+n\nDc3EqaX8oYXO1kygdNjFOybbdeD4F/EATrDKK+op0GTVP84kpu0iqqLIvxJp0tcG\nHFXgRQB6dcG7WdjC5tT+EHiJWyisnoCTlTI/OpJ2sDtU4QfFOeXMvrs5wQKBgQCS\ntl7aGE6AMpdRE+R4Fbk8wMGaqcDGAtWOGgeio8Hg+xzp6wbZ4BzWA52JotmNWm08\ngWzbHGbfMXbI4oONboC6iPhO/p39/GylDuzPWAVZppuEG++eHYddZ1l5IrpTh2RN\nVLjCkGo5o1xt3mLRiNdjYStc95w6J34w3bXQHW1YYQKBgQDNsErmbSKa8QjN3k7p\nerFp4hsPQZfKlni7gK8PdYyGrJdXMgHqWY2Gh9RLic/qdaiL74Z1I3ddJgzeFPjZ\nlKiAwgSRkr/sTOWH2yywGZoVsSxrJ8e+1SmVWfKQT0kpVyDaXnmkhz24INIi1spt\ngGOs6ZnXzgNuAZtRe1SwXhkvEA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "tvtalk@tvtalk-c4d50.iam.gserviceaccount.com",
+  "client_id": "113065814852344993938",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tvtalk%40tvtalk-c4d50.iam.gserviceaccount.com"
+}

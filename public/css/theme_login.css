@@ -1,0 +1,217 @@
+@font-face {
+  font-family: 'DINAlternate-Bold';
+  src: url('../fonts/DINAlternate-Bold/DINAlternate-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/DINAlternate-Bold/DINAlternate-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/DINAlternate-Bold/DINAlternate-Bold.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/DINAlternate-Bold/DINAlternate-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/DINAlternate-Bold/DINAlternate-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@font-face {
+    font-family: 'NotoSansCJKkr-Regular';
+    src: url('../fonts/NotoSansKR/NotoSansKR-Regular-Hestia.eot');
+    src: url('../fonts/NotoSansKR/NotoSansKR-Regular-Hestia.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/NotoSansKR/NotoSansKR-Regular-Hestia.woff') format('woff'),
+         url('../fonts/NotoSansKR/NotoSansKR-Regular-Hestia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansCJKkr-Bold';
+    src: url('../fonts/NotoSansKR/NotoSansKR-Bold-Hestia.eot');
+    src: url('../fonts/NotoSansKR/NotoSansKR-Bold-Hestia.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/NotoSansKR/NotoSansKR-Bold-Hestia.woff') format('woff'),
+         url('../fonts/NotoSansKR/NotoSansKR-Bold-Hestia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('../fonts/roboto/Roboto-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/roboto/Roboto-Regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/roboto/Roboto-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/roboto/Roboto-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+@media (max-width:320px){html{font-size:8.3px;}}
+@media (min-width:321px) and (max-width:339px){html{font-size:8.5px;}}
+@media (min-width:340px) and (max-width:359px){html{font-size:9px;}}
+@media (min-width:360px){html{font-size:10px;}}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background:#DEDEDE;
+}
+.phone-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100%;
+}
+.phone-body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: table;
+}
+/*------------logo------------*/
+.login {
+    margin: 0 auto;
+    text-align: center;
+    /*padding-top: 100px;*/
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#logo a {
+    background-image: url(../images/user.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: auto 96px;
+    padding: 0;
+    height: 96px;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.login h4 {
+    color: black;
+    margin-top: 0;
+    letter-spacing: -0.5px;
+    font-family: DINAlternate-Bold;
+    font-size: 36px;
+}
+/*------------form------------*/
+input[type=email].invalid, input[type=email]:focus.invalid,
+input[type=email].valid, input[type=email]:focus.valid,
+input[type=password].valid, input[type=password]:focus.valid,
+input[type=password].invalid, input[type=password]:focus.invalid {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+#input_id,
+#input_password {
+    border-bottom: 1.9px solid #252525;
+    margin-bottom: 0px;
+    height: 14px;
+    text-indent: 60px;
+}
+
+input.validate#input_id, input.validate#input_password {
+    padding-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    font-family: NotoSansCJKkr-Regular;
+    /*padding-left: 10px;*/
+}
+
+.row .col {
+    padding: 0;
+}
+.row {
+    margin-bottom: 12px;
+}
+.input_title{
+    position: absolute;
+    font-size: 14px;
+    font-family: NotoSansCJKkr-Bold;
+    letter-spacing: -1px;
+    color: #252525;
+}
+input#input_id.validate,
+input#input_password.validate {
+    padding-bottom: 12px;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+}
+
+#button_login {
+    background-color: white;
+    color: #252525;
+    border: 1px solid #252525;
+    height: 46px;
+    width: 100%;
+    font-size: 14px;
+    font-family: NotoSansCJKkr-Bold;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+    border-radius: 0;
+    box-shadow: none;
+    line-height: 46px;
+}
+
+#button_signup {
+    background-color: #252525;
+    border: 1px solid #252525;
+    height: 46px;
+    width: 100%;
+    font-size: 14px;
+    font-family: NotoSansCJKkr-Bold;
+    letter-spacing: -1px;
+    border-radius: 0;
+    box-shadow: none;
+    line-height: 46px;
+}
+#button_signup_facebook,
+#button_signup_email {
+    height: 46px;
+    width: 48.8%;
+    font-size: 14px;
+    font-family: NotoSansCJKkr-Bold;
+    letter-spacing: -1px;
+    border-radius: 0;
+    box-shadow: none;
+    line-height: 42px;
+    padding: 0;
+}
+#button_signup_facebook {
+    background-color: #233edb;
+    border: 1px solid #233edb;
+    margin-right: 2.4%;
+}
+#button_signup_email {
+    background-color: #ff0453;
+    border: 1px solid #ff0453;
+}
+
+#non-members,
+#id_find,
+#password_find {
+    color: #252525;
+    font-size: 14px;
+    letter-spacing: -1px;
+    font-family: NotoSansCJKkr-Regular;
+}
+
+/*---------input태그색상 없애는 부분--------*/
+input:not([type]):disabled+label,input:not([type])[readonly="readonly"]+label,input[type=text]:disabled+label,input[type=text][readonly="readonly"]+label,input[type=password]:disabled+label,input[type=password][readonly="readonly"]+label,input[type=email]:disabled+label,input[type=email][readonly="readonly"]+label,input[type=url]:disabled+label,input[type=url][readonly="readonly"]+label,input[type=time]:disabled+label,input[type=time][readonly="readonly"]+label,input[type=date]:disabled+label,input[type=date][readonly="readonly"]+label,input[type=datetime]:disabled+label,input[type=datetime][readonly="readonly"]+label,input[type=datetime-local]:disabled+label,input[type=datetime-local][readonly="readonly"]+label,input[type=tel]:disabled+label,input[type=tel][readonly="readonly"]+label,input[type=number]:disabled+label,input[type=number][readonly="readonly"]+label,input[type=search]:disabled+label,input[type=search][readonly="readonly"]+label,textarea.materialize-textarea:disabled+label,textarea.materialize-textarea[readonly="readonly"]+label{color:rgba(0,0,0,0.26)}input:not([type]):focus:not([readonly]),input[type=text]:focus:not([readonly]),input[type=password]:focus:not([readonly]),input[type=email]:focus:not([readonly]),input[type=url]:focus:not([readonly]),input[type=time]:focus:not([readonly]),input[type=date]:focus:not([readonly]),input[type=datetime]:focus:not([readonly]),input[type=datetime-local]:focus:not([readonly]),input[type=tel]:focus:not([readonly]),input[type=number]:focus:not([readonly]),input[type=search]:focus:not([readonly]),textarea.materialize-textarea:focus:not([readonly]){box-shadow:none}
+
+input:not([type]).invalid, input:not([type]):focus.invalid, input[type=text].invalid, input[type=text]:focus.invalid, input[type=password].invalid, input[type=password]:focus.invalid, input[type=email].invalid, input[type=email]:focus.invalid, input[type=url].invalid, input[type=url]:focus.invalid, input[type=time].invalid, input[type=time]:focus.invalid, input[type=date].invalid, input[type=date]:focus.invalid, input[type=datetime].invalid, input[type=datetime]:focus.invalid, input[type=datetime-local].invalid, input[type=datetime-local]:focus.invalid, input[type=tel].invalid, input[type=tel]:focus.invalid, input[type=number].invalid, input[type=number]:focus.invalid, input[type=search].invalid, input[type=search]:focus.invalid, textarea.materialize-textarea.invalid, textarea.materialize-textarea:focus.invalid {
+     box-shadow: none;
+}
+input:not([type]).valid, input:not([type]):focus.valid, input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid, input[type=password]:focus.valid, input[type=email].valid, input[type=email]:focus.valid, input[type=url].valid, input[type=url]:focus.valid, input[type=time].valid, input[type=time]:focus.valid, input[type=date].valid, input[type=date]:focus.valid, input[type=datetime].valid, input[type=datetime]:focus.valid, input[type=datetime-local].valid, input[type=datetime-local]:focus.valid, input[type=tel].valid, input[type=tel]:focus.valid, input[type=number].valid, input[type=number]:focus.valid, input[type=search].valid, input[type=search]:focus.valid, textarea.materialize-textarea.valid, textarea.materialize-textarea:focus.valid {
+    box-shadow: none;
+}
+
+/*토스트 위치 변경*/
+#toast-container {
+    bottom: 30px;
+    top: initial;
+    right: initial;
+    left: 50%;
+    margin-left: -85px;
+    min-width: initial;
+}
+
+.toast {
+    display: flex;
+    min-height: 40px;
+}
