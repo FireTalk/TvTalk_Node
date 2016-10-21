@@ -38,7 +38,9 @@ function changeBookMark(drama_key) {
     }
 }
 
-function changeTextOnOff(image) {
+
+
+/*function changeTextOnOff(image) {
     var on_off = $("#on img");
 
 
@@ -59,9 +61,10 @@ function changeTextOnOff(image) {
 
 		/*$('.second_li_emoticon').css('display', 'table').css('top', '-53px').css('position', 'relative').css('left','0px');
 		*/
-		$('.second_li_emoticon').css('position', 'relative').css('left','-125px').css('top','15px');
-		$('.row').css('height', '70px');
-    } else if (on_off.attr('src') == "./images/fill_7.png") { // on버전
+//		$('.second_li_emoticon').css('position', 'relative').css('left','-92px').css('top','-26px');
+//		$('.row').css('height', '70px');
+
+/*   } else if (on_off.attr('src') == "./images/fill_7.png") { // on버전
         on_off.attr('src', "./images/fill_8.png");
         $('.send_emoticon').show();
         $('.emoticon_chat').show();
@@ -76,9 +79,42 @@ function changeTextOnOff(image) {
 		$('.row').css('height', 'inherit');
 		$('li.collection-item.avatar.other-msg-emoticon').css('height', '120px');
 		/*$('.second_li').css('top', '0px').css('right', '124px');jueun*/
-		$('.second_li').css('right', '124px');
+//		$('.second_li').css('right', '124px');
+//    }
+//}
+function changeTextOnOff(image) {
+    var on_off = $("#on img");
+
+    if (on_off.attr('src') == "./images/fill_8.png") { // off 버전
+        on_off.attr('src',"./images/fill_7.png");
+        $('.send_emoticon').hide();
+        $('.emoticon_chat').hide();
+        $('.other_send_emoticon2').hide();
+        $('.right_emoticon').hide();
+        $('li').removeClass('second_li');
+        $('li.collection-item.avatar.other-msg-emoticon').css('height','10px').css('min-height','10px');
+        //$('.collection .collection-item.avatar').css('padding-top', '0px').css('margin-top', '10px').css('left', '0px').css('top', '11px');
+        $('.collection-item.avatar').css('padding-right', '80px');
+        $('.collection-item.avatar.my-msg').css('padding', '0px');
+        $('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '27px').css('left', '20px');
+       
+
+    } else if (on_off.attr('src') == "./images/fill_7.png") { // on버전
+        on_off.attr('src', "./images/fill_8.png");
+        $('.send_emoticon').show();
+        $('.emoticon_chat').show();
+        $('.other_send_emoticon2').show();
+        $('.right_emoticon').show();
+        $('li.collection-item.avatar.other-msg-emoticon').css('height','120px');
+        //$('.collection .collection-item.avatar').css('padding-top', '10px').css('margin-top', '0px');
+        $('.collection-item.avatar').css('padding-right', '10px');
+        $('.collection-item.avatar.my-msg').css('padding', '0px');
+        $('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '20px').css('left', '0px');
+
     }
 }
+
+
 
 function changeHeart(key){
     if(firebase.auth().currentUser == null) {
