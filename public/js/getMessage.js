@@ -52,7 +52,7 @@ var before_key;
 function getMsg(db, uid){
     var cnt = 0;
 
-    db.ref('chat/'+$("#key").val()+'_'+$("#order").val()).on("child_added", function(data){
+    db.ref('chat/'+$("#key").val()+'_'+$("#order").val()).limitToLast(200).on("child_added", function(data){
 
 
         if(uid == "not"){
@@ -98,7 +98,7 @@ function getMsg(db, uid){
         cnt++;
         db.ref('chat/'+$("#key").val()+'_'+$("#order").val()).once("value", function(datas){
 
-            if(cnt == datas.numChildren() && final_chk==false){
+            if(cnt == 200 && final_chk==false){
                 final_chk = true;
                 setTimeout(function () {
                    goBottom();
@@ -241,4 +241,167 @@ function hasScrolled() {
         // goBottom();
         $('#bottom_message').remove();
     }
+    if($(".phone-body").scrollTop() == 0){
+        var end = parseInt($(".row").eq(0).attr("class").split(" chat")[1])-1;
+        var start ;
+
+        if(end > 1){
+            start = parseInt(end)-5;
+            if(start < 1) start = 1;
+                var before_uid;
+                var before_key;
+                var uid_set = [];
+                firebase.database().ref('chat/'+$("#key").val()+'_'+$("#order").val()).orderByKey().startAt(""+start).endAt(""+end).once("value", function(data){
+                    var str = "";
+                    var cnt = 0;
+
+                    data.forEach(function(child) {
+                        cnt++;
+
+                         var key = child.key;
+                         var childData = child.val();
+                         var uid = null;
+                         if(firebase.auth().currentUser !=null) uid = firebase.auth().currentUser.uid;
+
+
+                         if(uid !=null && child.key != 'people' && child.val().uid == uid){//내가 보낸것
+                            if(child.val().type == "1"){
+
+                                str +=''+
+                                    '<div class="row">'+
+                                        '<li class="collection-item avatar my-msg">'+
+                                           '<p class="msg2">'+child.val().msg+'</p>'+
+                                        '</li>'+
+                                    '</div>';
+
+                            }else if(child.val().type == "2"){
+                                str +=''+
+                                    '<div class="row right_emoticon">'+
+                                        '<li class="collection-item avatar my-msg">'+
+                                            '<img class="send_emoticon" src="../images/'+child.val().emo+'.png">'+
+                                        '</li>'+
+                                    '</div>';
+
+                            }else if(child.val().type == "3"){
+                                // 채팅방에 텍스트  이모티콘 붙이기
+                                str +=''+
+                                    '<div class="row">'+
+                                        '<li class="collection-item avatar my-msg2">'+
+                                            '<img class="send_emoticon" src="../images/'+child.val().emo+'.png">'+
+                                        '</li>'+
+                                        '<li class="collection-item avatar my-msg2">'+
+                                            '<p class ="msg2">'+child.val().msg+'</p>'+
+                                        '</li>'+
+                                    '</div>';
+
+                            }
+                         }else{
+                            //왼쪽 메세지
+
+
+
+                            if(before_uid == child.val().uid && parseInt(before_key)+1 == parseInt(child.key)){//동일인물
+
+                                if(child.val().type == "1"){
+                                    str +=''+
+                                        '<div class="row chat'+child.key+'">'+
+                                            '<li class="collection-item avatar">'+
+
+                                                '<p class="msg1">'+child.val().msg+'</p>'+
+                                            '</li>'+
+                                        '</div>';
+
+                                }else if(child.val().type == "2"){
+                                    str +=''+
+                                        '<div class="row emoticon_chat chat'+child.key+'">'+
+                                            '<li class="collection-item avatar other-msg-emoticon">'+
+
+                                                '<img class= "left_emoticon other_send_emoticon" src="../images/'+child.val().emo+'.png">'+
+                                            '</li>'+
+                                        '</div>';
+
+                                }else if(child.val().type == "3"){
+                                    str +=''+
+
+                                        '<div class="row chat'+child.key+'">'+
+                                            '<li class="collection-item avatar other-msg-emoticon">'+
+
+                                                '<img class="left_emoticon other_send_emoticon2" src ="../images/'+child.val().emo+'.png">'+
+                                            '</li>'+
+                                            '<li class="collection-item avatar second_li">'+
+                                                '<p class="msg1">'+child.val().msg+'</p>'+
+                                            '</li>'+
+                                        '</div>';
+
+                                }
+                            }
+                            else{
+                                uid_set.push({uid : child.val().uid, key : child.key});
+                                if(child.val().type == "1"){
+                                    str +=''+
+                                        '<div class="row chat'+child.key+'">'+
+                                            '<li class="collection-item avatar">'+
+                                                '<img src="" class="circle">'+
+                                                '<span class="nickname"></span>'+
+                                                '<p class = "msg1">'+child.val().msg+'</p>'+
+                                            '</li>'+
+                                        '</div>';
+
+                                }else if(child.val().type == "2"){
+
+                                    str +=''+
+                                        '<div class ="row emoticon_chat chat'+child.key+'">'+
+                                            '<li class="collection-item avatar other-msg-emoticon">'+
+                                                '<img src="" class="circle">'+
+                                                '<span class="nickname"></span>'+
+                                                '<img class="left_emoticon other_send_emoticon" src="../images/'+child.val().emo+'.png">'+
+                                            '</li>'+
+                                        '</div>';
+
+                                }else if(child.val().type == "3"){
+
+                                    str +=''+
+                                        '<div class="row chat'+child.key+'">'+
+                                            '<li class="collection-item avatar other-msg-emoticon">'+
+                                                '<img src="" class="circle">'+
+                                                '<span class="nickname"></span>'+
+                                                '<img class ="left_emoticon other_send_emoticon2" src="../images/'+child.val().emo+'.png">'+
+
+                                            '<li class ="collection-item avatar second_li">'+
+                                                '<p class ="msg1">'+child.val().msg+'</p>'+
+                                            '</li>'+
+                                        '</div>';
+
+                                }
+
+                            }
+                            before_uid = child.val().uid;
+                            before_key = child.key;
+
+                        }
+
+                        if(cnt==data.numChildren()){
+                            var lastHtml = $('.collection').html();
+                            $('.collection').html(str+lastHtml);
+                            $('.phone-body').scrollTop(10);
+                            for(var i = 0; i <uid_set.length; i++ ){
+                                update_chat(uid_set[i]);
+                            }
+                        }
+                     });//forEach
+                });
+            }
+        }
+        function update_chat(info){
+            var nick;
+            var profile;
+            firebase.database().ref("member/"+info.uid).once("value", function(chatinfo){
+                if(chatinfo.val().profile != null) profile = chatinfo.val().profile;
+                else profile = '../images/user.png';
+                nick = chatinfo.val().nickname;
+                $('.chat'+info.key).find('.circle').attr('src',profile);
+                $('.chat'+info.key).find('.nickname').text(nick);
+            });
+        }
+
 }
