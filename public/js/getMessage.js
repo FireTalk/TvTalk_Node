@@ -242,4 +242,3 @@ function hasScrolled() {
         $('#bottom_message').remove();
     }
 }
-
