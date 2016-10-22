@@ -248,6 +248,7 @@ h5 {
     overflow: hidden;
     position: relative;
     text-align: center;
+    background: white;
 }
 
 .collection a.collection-item{
