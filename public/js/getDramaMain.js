@@ -3,6 +3,7 @@ var socket = io();
 var like_heart = 'images/dislike.png';
 var cnt = 0;
 var connection = false;
+var login_chk = false;
 
 socket.emit('check', 'tvtalk');
 socket.on('config', function(msg) {
@@ -12,7 +13,8 @@ socket.on('config', function(msg) {
             connection = true;
             var db = firebase.database();
             var data_length;
-            var login_chk = false;
+
+
 
             firebase.auth().onAuthStateChanged(function(user) {
                 if(!login_chk){
@@ -22,25 +24,19 @@ socket.on('config', function(msg) {
                          data.forEach(function(child){
                           changeLikeImage(child.key);
                          });
-                        if(window.location.search.indexOf("=")!==-1){
-                            var key = window.location.search.split("=")[1];
-                            var position = $(".drama"+key).position().top;
-                            window.scrollTo(0, position);
-                        }
+
                       });
                       $('.tooltip1').attr('data-tooltip','나의 정보');
                       $('.login').attr('href','/user');
                       $('.tooltip1').tooltip();
-
-                      console.log('로그인중',user);
 
                     } else {//로그인X
                       $('.tooltip1').attr('data-tooltip','로그인');
                       $('.login').attr('href','/login/main');
                       $('.tooltip1').tooltip();
                       load_poster_upgrage(db);
-                      console.log('로그인안됨');
                     }
+
                     login_chk = true;
                 }
             });
@@ -71,6 +67,14 @@ function load_poster_upgrage(db){
             key-=1;
             var before = $('.collection .row'+key).html();
             $('.collection .row'+key).html(before+tmp);
+        }
+
+        if(window.location.search.indexOf("=")!==-1){
+            var sc_key = window.location.search.split("=")[1];
+            if(sc_key == key){
+                var position = $(".drama"+sc_key).position().top;
+                window.scrollTo(0, position);
+            }
         }
     });
 }

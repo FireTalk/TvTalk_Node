@@ -47,7 +47,25 @@ router.get('/closed', function(req, res, next) {
     var ref = db.ref("drama/"+req.query.drama+"/list/"+req.query.order+"/state");
     ref.once("value" ,function(data){
       if(data.val() == 'closed'){
-        res.render('chatroom_lock',{key : req.query.drama, title : req.query.order});
+
+        db.ref("chat/"+req.query.drama+"_"+req.query.order).once("value", function(d){
+          var max = 0;
+          var cnt = 0;
+          d.forEach(function(d2) {
+
+            cnt++;
+            if(d2.child("like").numChildren() > max){
+              max = d2.child("like").numChildren();
+            }
+            if(cnt == d.numChildren()) {
+
+              res.render('chatroom_lock',{key : req.query.drama, title : req.query.order, max : max});
+
+            }
+
+          });
+        });
+
       }else{
         res.send('<script>alert("채팅방이 존재하지 않습니다."); history.back();</script>');
       }
@@ -89,7 +107,5 @@ router.get('/pwd_change', function(req, res, next) {
 router.get('/apk', function(req, res, next) {
   res.render('apk');
 });
-
-
 
 module.exports = router;

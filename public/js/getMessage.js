@@ -52,7 +52,7 @@ var before_key;
 function getMsg(db, uid){
     var cnt = 0;
 
-    db.ref('chat/'+$("#key").val()+'_'+$("#order").val()).limitToLast(200).on("child_added", function(data){
+    db.ref('chat/'+$("#key").val()+'_'+$("#order").val()).limitToLast(100).on("child_added", function(data){
 
 
         if(uid == "not"){
@@ -64,7 +64,7 @@ function getMsg(db, uid){
             if(data.key != 'people' && data.val().uid == uid){//내가 보낸것
                 if(data.val().type == "1"){
                     $('.collection').append(
-                        $('<div>').attr('class', 'row').append(
+                        $('<div>').attr('class', 'row chat'+data.key).append(
                             $('<li>').attr('class', 'collection-item avatar my-msg').append(
                                $('<p>').attr('class', 'msg2').text(data.val().msg)
                             )
@@ -72,7 +72,7 @@ function getMsg(db, uid){
                     );
                 }else if(data.val().type == "2"){
                     $('.collection').append(
-                        $('<div>').attr('class', 'row right_emoticon').append(
+                        $('<div>').attr('class', 'row right_emoticon chat'+data.key).append(
                             $('<li>').attr('class', 'collection-item avatar my-msg').append(
                                 $('<img>').attr('class', 'send_emoticon').attr('src', '../images/'+data.val().emo+'.png')
                             )
@@ -81,7 +81,7 @@ function getMsg(db, uid){
                 }else if(data.val().type == "3"){
                     // 채팅방에 텍스트  이모티콘 붙이기
                     $('.collection').append(
-                        $('<div>').attr('class', 'row').append(
+                        $('<div>').attr('class', 'row chat'+data.key).append(
                             $('<li>').attr('class', 'collection-item avatar my-msg2').append(
                                 $('<img>').attr('class', 'send_emoticon').attr('src', '../images/'+data.val().emo+'.png')
                             ),
@@ -97,8 +97,13 @@ function getMsg(db, uid){
         }
         cnt++;
         db.ref('chat/'+$("#key").val()+'_'+$("#order").val()).once("value", function(datas){
-
-            if(cnt == 200 && final_chk==false){
+            var standard;
+            if(datas.numChildren()<100){
+                standard = datas.numChildren();
+            }else{
+                standard = 100;
+            }
+            if(cnt == standard && final_chk==false){
                 final_chk = true;
                 setTimeout(function () {
                    goBottom();
@@ -246,7 +251,7 @@ function hasScrolled() {
         var start ;
 
         if(end > 1){
-            start = parseInt(end)-5;
+            start = parseInt(end)-100;
             if(start < 1) start = 1;
                 var before_uid;
                 var before_key;
@@ -268,7 +273,7 @@ function hasScrolled() {
                             if(child.val().type == "1"){
 
                                 str +=''+
-                                    '<div class="row">'+
+                                    '<div class="row chat'+child.key+'">'+
                                         '<li class="collection-item avatar my-msg">'+
                                            '<p class="msg2">'+child.val().msg+'</p>'+
                                         '</li>'+
@@ -276,7 +281,7 @@ function hasScrolled() {
 
                             }else if(child.val().type == "2"){
                                 str +=''+
-                                    '<div class="row right_emoticon">'+
+                                    '<div class="row right_emoticon chat'+child.key+'">'+
                                         '<li class="collection-item avatar my-msg">'+
                                             '<img class="send_emoticon" src="../images/'+child.val().emo+'.png">'+
                                         '</li>'+
@@ -285,7 +290,7 @@ function hasScrolled() {
                             }else if(child.val().type == "3"){
                                 // 채팅방에 텍스트  이모티콘 붙이기
                                 str +=''+
-                                    '<div class="row">'+
+                                    '<div class="row chat'+child.key+'">'+
                                         '<li class="collection-item avatar my-msg2">'+
                                             '<img class="send_emoticon" src="../images/'+child.val().emo+'.png">'+
                                         '</li>'+
@@ -382,8 +387,10 @@ function hasScrolled() {
 
                         if(cnt==data.numChildren()){
                             var lastHtml = $('.collection').html();
+                            var before_scrollHeight = $('.phone-body')[0].scrollHeight;
                             $('.collection').html(str+lastHtml);
-                            $('.phone-body').scrollTop(10);
+                            var after_scrollHeight = $('.phone-body')[0].scrollHeight;
+                            $('.phone-body').scrollTop(after_scrollHeight - before_scrollHeight - 100);
                             for(var i = 0; i <uid_set.length; i++ ){
                                 update_chat(uid_set[i]);
                             }
