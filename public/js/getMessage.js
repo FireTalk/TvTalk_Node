@@ -1,10 +1,9 @@
-var message_list = [];
 var socket = io();
 var cnt = 0;
 var connection = false;
 var login_chk =false;
 
-socket.emit('check', 'tvtalk');
+socket.emit('chat', $("#key").val()+'_'+$("#order").val());
 socket.on('config', function(msg) {
     if(msg !='fail'){
         if(connection == false){
