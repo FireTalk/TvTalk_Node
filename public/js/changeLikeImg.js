@@ -96,7 +96,7 @@ function changeTextOnOff(image) {
         //$('.collection .collection-item.avatar').css('padding-top', '0px').css('margin-top', '10px').css('left', '0px').css('top', '11px');
         $('.collection-item.avatar').css('padding-right', '10px');
         $('.collection-item.avatar.my-msg').css('padding', '0px').css('padding-right', '10px');
-        $('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '27px').css('left', '20px');
+        $('.collection-item.avatar.my-msg2').css('padding-right', '10px').css('margin-bottom', '27px').css('left', '30px');
         $('.collection-item.avatar.other-msg-emoticon').css('display','none');
        
 
@@ -110,7 +110,7 @@ function changeTextOnOff(image) {
         //$('.collection .collection-item.avatar').css('padding-top', '10px').css('margin-top', '0px');
         $('.collection-item.avatar').css('padding-right', '10px');
         $('.collection-item.avatar.my-msg').css('padding', '0px').css('padding-right', '10px');
-        $('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '20px').css('left', '0px');
+        $('.collection-item.avatar.my-msg2').css('padding-right', '10px').css('margin-bottom', '20px').css('left', '0px');
         $('.collection-item.avatar.other-msg-emoticon').css('display','block');
 
     }
