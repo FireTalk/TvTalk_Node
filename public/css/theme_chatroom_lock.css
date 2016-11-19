@@ -613,8 +613,8 @@ li.collection-item.avatar.my-msg {
     text-align: right;
     top: inherit;
     right: inherit;
-    left: 10em;
-    bottom: 14px;
+    left: 12em;
+    bottom: 4px;
     width: 4.2em;
 }
 /*------------other-emoticon-------------*/
@@ -678,7 +678,7 @@ li.collection-item.avatar.my-msg2 {
     right: 143px;
     padding: 22px;
     margin-bottom: 5px;
-    width: 55%;
+    width: 47%;
 }
 
 /*.collection .avatar.collection-item {

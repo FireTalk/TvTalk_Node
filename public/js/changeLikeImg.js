@@ -124,6 +124,7 @@ function changeTextOnOff2(image) {
         $('.emoticon_chat').hide();
         $('.other_send_emoticon2').hide();
         $('.right_emoticon').hide();
+        $('.collection-item.avatar.other-msg-emoticon').hide();
         $('li').removeClass('second_li');
         $('li.collection-item.avatar.other-msg-emoticon').css('height','10px').css('min-height','10px');
         //$('.collection .collection-item.avatar').css('padding-top', '0px').css('margin-top', '10px').css('left', '0px').css('top', '11px');
@@ -131,7 +132,7 @@ function changeTextOnOff2(image) {
         $('.collection-item.avatar.my-msg').css('padding', '0px');
         //$('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '27px').css('left', '20px');
         
-        alert("1");
+        $('.collection-item.avatar .secondary-content.badge.likefunction_my').css('left', '10em').css('bottom', '14px');
 
     } else if (on_off.attr('src') == "./images/fill_7.png") { // on버전
         on_off.attr('src', "./images/fill_8.png");
@@ -140,12 +141,14 @@ function changeTextOnOff2(image) {
         $('.emoticon_chat').show();
         $('.other_send_emoticon2').show();
         $('.right_emoticon').show();
+        $('.collection-item.avatar.other-msg-emoticon').show();
         $('li.collection-item.avatar.other-msg-emoticon').css('height','120px');
         //$('.collection .collection-item.avatar').css('padding-top', '10px').css('margin-top', '0px');
         //$('.collection-item.avatar').css('padding-right', '10px');
         //$('.collection-item.avatar.my-msg').css('padding', '0px');
         //$('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '20px').css('left', '0px');
 
+        $('.collection-item.avatar .secondary-content.badge.likefunction_my').css('left', '10em').css('bottom', '14px');
     }
 }
 
