@@ -95,8 +95,9 @@ function changeTextOnOff(image) {
         $('li.collection-item.avatar.other-msg-emoticon').css('height','10px').css('min-height','10px');
         //$('.collection .collection-item.avatar').css('padding-top', '0px').css('margin-top', '10px').css('left', '0px').css('top', '11px');
         $('.collection-item.avatar').css('padding-right', '10px');
-        $('.collection-item.avatar.my-msg').css('padding', '0px');
+        $('.collection-item.avatar.my-msg').css('padding', '0px').css('padding-right', '10px');
         $('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '27px').css('left', '20px');
+        $('.collection-item.avatar.other-msg-emoticon').css('display','none');
        
 
     } else if (on_off.attr('src') == "./images/fill_7.png") { // on버전
@@ -108,7 +109,7 @@ function changeTextOnOff(image) {
         $('li.collection-item.avatar.other-msg-emoticon').css('height','120px');
         //$('.collection .collection-item.avatar').css('padding-top', '10px').css('margin-top', '0px');
         $('.collection-item.avatar').css('padding-right', '10px');
-        $('.collection-item.avatar.my-msg').css('padding', '0px');
+        $('.collection-item.avatar.my-msg').css('padding', '0px').css('padding-right', '10px');
         $('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '20px').css('left', '0px');
 
     }
