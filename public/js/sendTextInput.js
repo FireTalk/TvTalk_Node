@@ -274,12 +274,16 @@ function sendMsg(message, src, chk){
 
     var cnt;
     if(firebase.auth().currentUser != null){
-        firebase.database().ref('chat').child($("#key").val()+"_"+$("#order").val()).on("value", function(data){
+        firebase.database().ref('chat').child($("#key").val()+"_"+$("#order").val()).once("value", function(data){
             if(data.numChildren() !== 0){
                 cnt = parseInt(data.numChildren())+1;
             }else{
                 cnt = 1;
             }
+            var obj = {};
+            obj[cnt] = {msg : message, emo : src, uid : ''+firebase.auth().currentUser.uid,  type : chk};
+            firebase.database().ref("chat").child($("#key").val()+"_"+$("#order").val()).update(obj);
+            $('.phone-body').scrollTop($('.phone-body')[0].scrollHeight);
 
         });
         // for(var i =25; i<=200; i++){
@@ -289,12 +293,10 @@ function sendMsg(message, src, chk){
         //     firebase.database().ref("chat").child($("#key").val()+"_"+$("#order").val()).update(obj);
 
         // }
-        var obj = {};
-        obj[cnt] = {msg : message, emo : src, uid : ''+firebase.auth().currentUser.uid,  type : chk};
-        firebase.database().ref("chat").child($("#key").val()+"_"+$("#order").val()).update(obj);
+
 
     }
-    $('.phone-body').scrollTop($('.phone-body')[0].scrollHeight);
+
 }
 
 // $('#m').on('focusout', function(){
