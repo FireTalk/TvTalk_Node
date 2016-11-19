@@ -487,7 +487,10 @@ function hasScrolled() {
                      });//forEach
                 });
             }
+
         }
+
+
         function update_chat(info){
             var nick;
             var profile;
@@ -498,6 +501,34 @@ function hasScrolled() {
                 $('.chat'+info.key).find('.circle').attr('src',profile);
                 $('.chat'+info.key).find('.nickname').text(nick);
             });
+
+
+             /***** 이모티콘 off 관련 추가 *****/
+            var on_off = $("#on img");
+
+            if (on_off.attr('src') == "./images/fill_7.png") { // off 버전
+                $('.send_emoticon').hide();
+                $('.send_emoticon2').hide();
+                $('.emoticon_chat').hide();
+                $('.other_send_emoticon2').hide();
+                $('.right_emoticon').hide();
+                $('.collection-item.avatar.other-msg-emoticon').hide();
+                $('li').removeClass('second_li');
+                $('li.collection-item.avatar.other-msg-emoticon').css('height', '10px').css('min-height', '10px');
+                $('.collection-item.avatar.my-msg').css('padding', '0px');
+                $('.collection-item.avatar .secondary-content.badge.likefunction_my').css('left', '10em').css('bottom', '14px');
+
+            } else if (on_off.attr('src') == "./images/fill_8.png") { // on버전
+                $('.send_emoticon').show();
+                $('.send_emoticon2').show();
+                $('.emoticon_chat').show();
+                $('.other_send_emoticon2').show();
+                $('.right_emoticon').show();
+                $('.collection-item.avatar.other-msg-emoticon').show();
+                $('li.collection-item.avatar.other-msg-emoticon').css('height', '120px');
+                $('.collection-item.avatar .secondary-content.badge.likefunction_my').css('left', '10em').css('bottom', '14px');
+            }
+
         }
 
 }

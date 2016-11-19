@@ -243,6 +243,7 @@ setInterval(function() {
 }, 250);
 
 function hasScrolled() {
+
     if(($(".phone-body")[0].scrollHeight-$(".phone-body").scrollTop()) < 700 ){
         // goBottom();
         $('#bottom_message').remove();
@@ -399,6 +400,7 @@ function hasScrolled() {
                      });//forEach
                 });
             }
+
         }
         function update_chat(info){
             var nick;
