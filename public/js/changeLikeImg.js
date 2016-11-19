@@ -111,6 +111,7 @@ function changeTextOnOff(image) {
         $('.collection-item.avatar').css('padding-right', '10px');
         $('.collection-item.avatar.my-msg').css('padding', '0px').css('padding-right', '10px');
         $('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '20px').css('left', '0px');
+        $('.collection-item.avatar.other-msg-emoticon').css('display','block');
 
     }
 }
