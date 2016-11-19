@@ -103,6 +103,8 @@ socket.on('config', function(msg) {
               }
             var lastHtml = $('.collection').html();
             $('.collection').html(str+lastHtml);
+            //preloader지우기
+            $('.preloader-wrapper').css('display', 'none');
 
             if(datas.numChildren() == cnt){
               if(window.location.search.indexOf("=")!==-1){
@@ -115,7 +117,6 @@ socket.on('config', function(msg) {
         });
 
       }
-
     }else if(msg =='fail') alert("네트워크 상태가 원활하지 않습니다.");
 });
 
