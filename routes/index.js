@@ -109,26 +109,34 @@ router.get('/apk', function(req, res, next) {
   res.render('apk');
 });
 
-var j = schedule.scheduleJob('00 * * * * *', function(){
-  var ref = db.ref("drama");
-  ref.once("value", function(data){
-    data.forEach(function(drama_one){
-      var time = drama_one.child("time").val().split("오후 ")[1];//10:00
-      drama_one.child("list").forEach(function(list){
-        var date = list.val().date.split("(")[0];//2016.10.10
-        var start = new Date(date+" "+time);
-        var now = new Date();//aws에서는한국시간 아님.................................
-        var chk = (start - now + 32400000)/1000/60;
-        if(chk<=-80){
-          ref.child(drama_one.key+"/list/"+list.key+"/state").set("closed");
-        }else if(chk<=10 && chk > -80){
-          ref.child(drama_one.key+"/list/"+list.key+"/state").set("open");
-        }else if(chk>10){
-          ref.child(drama_one.key+"/list/"+list.key+"/state").set("locked");
-        }
-      });
-    });
-  });
-});
+router.get("/getTime", function(req,res,next){
+  res.send(""+(new Date("2016.11.03 10:00") - new Date() +10800000)/1000/60 + 10800000 );
+})
+
+// var j = schedule.scheduleJob('00 * * * * *', function(){
+//   var ref = db.ref("drama");
+//   ref.once("value", function(data){
+//     data.forEach(function(drama_one){
+//       var time = drama_one.child("time").val().split("오후 ")[1];//10:00
+//       drama_one.child("list").forEach(function(list){
+//         var date = list.val().date.split("(")[0];//2016.10.10
+//         var start = new Date(date+" "+time);
+//         var now = new Date();//aws에서는한국시간 아님.................................
+//         var chk = (start - now + 10800000)/1000/60;
+//         // var chk = (start + 43200000 - now + 32400000)/1000/60;
+
+//         // var chk = (start - now)/1000/60;
+
+//         if(chk<=-80){
+//           ref.child(drama_one.key+"/list/"+list.key+"/state").set("closed");
+//         }else if(chk<=10 && chk > -80){
+//           ref.child(drama_one.key+"/list/"+list.key+"/state").set("open");
+//         }else if(chk>10){
+//           ref.child(drama_one.key+"/list/"+list.key+"/state").set("locked");
+//         }
+//       });
+//     });
+//   });
+// });
 
 module.exports = router;

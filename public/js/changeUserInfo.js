@@ -53,8 +53,8 @@ $('#select_img').on('change', function (e) {
         return;
     } else { // 이미지 파일일 경우
         // 프로필 이미지 변경
-        console.log('this.files = '+this.files);
-        console.log('this.files = '+this.files[0]);
+        // console.log('this.files = '+this.files);
+        // console.log('this.files = '+this.files[0]);
 
         if(file != null){
             var storageRef = firebase.storage().ref('profile/'+firebase.auth().currentUser.uid+'.png');

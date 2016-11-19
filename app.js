@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var firebase = require("firebase");
+
 
 
 
@@ -40,46 +40,47 @@ var config = {
     messagingSenderId: "276781873007"
   };
 
-io.sockets.on('connection', function (socket) {
-  socket.on('check', function(msg) {
-      if(msg == 'tvtalk'){
-        io.emit('config', config);
-      }else{
-        io.emit('config', "fail");
-      }
-    });//socket.on
+// io.sockets.on('connection', function (socket) {
+//   socket.on('check', function(msg) {
+//       if(msg == 'tvtalk'){
+//         io.emit('config', config);
+//       }else{
+//         io.emit('config', "fail");
+//       }
+//     });//socket.on
 
-  socket.on('chat', function(msg) {
-    if(msg != null){
-      socket.room = msg;
-      io.emit('config', config);
-      var ref = firebase.database().ref("chatInfo/"+msg);
-      ref.child("peopleCount").once("value", function(data){
-        if(data.val()== null){
-          var cnt = 1;
-        }else{
-          var cnt = parseInt(data.val())+1;
-        }
+//   socket.on('chat', function(msg) {
+//     if(msg != null){
+//       socket.room = msg;
+//       io.emit('config', config);
+//       var ref = firebase.database().ref("chatInfo/"+msg);
+//       ref.child("peopleCount").once("value", function(data){
+//         if(data.val()== null){
+//           var cnt = 1;
+//         }else{
+//           var cnt = parseInt(data.val())+1;
+//         }
 
-        ref.child("peopleCount").set(cnt);
-      });
-    }else{
-      io.emit('config', "fail");
-    }
-  });
+//         ref.child("peopleCount").set(cnt);
+//       });
+//     }else{
+//       io.emit('config', "fail");
+//     }
+//   });
 
-  socket.on('disconnect', function(){
-    if(socket.room != null){
-      var ref = firebase.database().ref("chatInfo/"+socket.room);
+//   socket.on('disconnect', function(){
+//     if(socket.room != null){
+//       var ref = firebase.database().ref("chatInfo/"+socket.room);
 
-      ref.child("peopleCount").once("value", function(data){
-        var cnt = parseInt(data.val())-1;
-        ref.child("peopleCount").set(cnt);
-      });
-    }
-  });//disconnected
+//       ref.child("peopleCount").once("value", function(data){
+//         var cnt = parseInt(data.val())-1;
+//         ref.child("peopleCount").set(cnt);
+//       });
+//     }
+//   });//disconnected
 
-});
+// });
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -112,9 +113,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
-server.listen(5000, function(){
-  console.log("sever start!");
-});
+// server.listen(3000, function(){
+//   console.log("sever start!");
+// });
 
 
 module.exports = app;
