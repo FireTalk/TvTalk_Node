@@ -120,6 +120,8 @@ $("#button_join").on("click", function(){
         Materialize.toast('비밀번호가 일치하지 않습니다.', 3000, 'rounded');
         // alert("비밀번호가 일치하지 않습니다.");
       }else{
+          //preloader지우기
+            $('.preloader-wrapper').css('display', 'block');
         firebase.auth().createUserWithEmailAndPassword(email, password).then(function(data){
             console.log("가입성공",data);
 
