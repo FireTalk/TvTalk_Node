@@ -133,8 +133,13 @@ span.brand-logo img {
 li.collection-item.avatar {
     display: inline-block;
 }
+
 .row{
     margin-bottom: 0px;
+}
+
+li.collection-item.avatar.other-msg-emoticon {
+    height: 120px;
 }
 
 .collection .collection-item.avatar p.msg1 {
@@ -358,8 +363,8 @@ li.collection-item.avatar {
 .collection .collection-item.avatar .secondary-content.badge.likefunction_other{
     text-align: left;
     top: inherit;
-    bottom: 12px;
-    right: 4em;
+    bottom: 4px;
+    right: 4.5em;
     width: 4.2em;
 }
 span.nickname {
@@ -608,7 +613,7 @@ li.collection-item.avatar.my-msg {
     text-align: right;
     top: inherit;
     right: inherit;
-    left: 11em;
+    left: 10em;
     bottom: 14px;
     width: 4.2em;
 }
@@ -618,20 +623,34 @@ li.collection-item.avatar.my-msg {
 }*/
 
 .other_send_emoticon {
+    
     position: relative;
     float: right;
     right: 143px;
     padding: 22px;
     margin-bottom: 5px;
     width: 55%;
+    /*
+    float: right;
+    padding: 11px;
+    margin-bottom: 5px;
+    width: 47%;*/
 }
 .other_send_emoticon2 {
     position: relative;
     float: right;
+    top: 15px;
+    right: 143px;
+    padding: 11px;
+    margin-bottom: 5px;
+    width: 47%;
+    /*
+    position: relative;
+    float: right;
     right: 143px;
     padding: 22px;
     margin-bottom: 5px;
-    width: 55%;
+    width: 55%;*/
 }
 /*------------my-emoticon-------------*/
 li.collection-item.avatar.my-msg2 {
@@ -646,13 +665,20 @@ li.collection-item.avatar.my-msg2 {
     float: right;
     padding: 11px;
     margin-bottom: 5px;
-    width: 53%;
+    width: 37%;
 }
 .send_emoticon2 {
+    /*
     float: right;
     padding: 11px;
     margin-bottom: 0;
-    width: 53%;
+    width: 53%;*/
+    position: relative;
+    float: right;
+    right: 143px;
+    padding: 22px;
+    margin-bottom: 5px;
+    width: 55%;
 }
 
 /*.collection .avatar.collection-item {
