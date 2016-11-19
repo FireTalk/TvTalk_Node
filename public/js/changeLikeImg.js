@@ -131,6 +131,7 @@ function changeTextOnOff2(image) {
         //$('.collection-item.avatar').css('padding-right', '80px');
         $('.collection-item.avatar.my-msg').css('padding', '0px');
         //$('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '27px').css('left', '20px');
+        $('.collection-item.avatar.other-msg-emoticon').css('display','none');
         
         $('.collection-item.avatar .secondary-content.badge.likefunction_my').css('left', '10em').css('bottom', '14px');
 
@@ -147,6 +148,7 @@ function changeTextOnOff2(image) {
         //$('.collection-item.avatar').css('padding-right', '10px');
         //$('.collection-item.avatar.my-msg').css('padding', '0px');
         //$('.collection-item.avatar.my-msg2').css('padding-right', '0px').css('margin-bottom', '20px').css('left', '0px');
+        $('.collection-item.avatar.other-msg-emoticon').css('display','block');
 
         $('.collection-item.avatar .secondary-content.badge.likefunction_my').css('left', '10em').css('bottom', '14px');
     }
