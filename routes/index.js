@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var firebase = require("firebase");
-var schedule = require('node-schedule');
+//var schedule = require('node-schedule');
 
 firebase.initializeApp({
   serviceAccount: "tvtalk-8c33492c8bba.json",

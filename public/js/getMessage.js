@@ -52,7 +52,9 @@ function getMsg(db, uid){
     var cnt = 0;
 
     db.ref('chat/'+$("#key").val()+'_'+$("#order").val()).limitToLast(100).on("child_added", function(data){
-
+    
+    //preloader지우기
+        $('.preloader-wrapper').css('display', 'none');
 
         if(uid == "not"){
 

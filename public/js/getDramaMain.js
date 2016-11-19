@@ -76,6 +76,8 @@ function load_poster_upgrage(db){
                 window.scrollTo(0, position);
             }
         }
+        //preloader지우기
+            $('.preloader-wrapper').css('display', 'none');
     });
 }
 
